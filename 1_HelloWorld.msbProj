@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="Hello World" >
+		<CreateProperty Value="Der neue Value">
+			<Output PropertyName="property" TaskParameter="Value"/>
+		</CreateProperty>
+		<Message Importance="high" Text="%(Item.Identity)" ></Message>
+		<MakeDir Directories="$(targetfolder)"></MakeDir>
+		<Copy DestinationFolder="$(targetfolder)" SourceFiles="@(Item)"></Copy>
+	</Target>
+	<Target Name="Clean" BeforeTargets="Hello World" >
+		<RemoveDir Directories="$(targetfolder)"/>
+	</Target>
+
+	<PropertyGroup>
+		<property>wert</property>
+		<andererName></andererName>
+		<TargetFolder>directory</TargetFolder>
+		<includeFile>0</includeFile>
+	</PropertyGroup>
+
+	<Import Project="07_IncludesX.$(includeFile).msbProj"/>
+	<UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v11.0\Web\Microsoft.Web.Publishing.Tasks.dll" />
+
+	<ItemGroup>
+		<Item Include="*.config"></Item>
+		<build Include="release;debug"/>
+		<Countries Include="DE;COM"></Countries>
+		
+	</ItemGroup>
+
+	<Target Name="deploy">
+		<MakeDir Directories="%(countries.identity)"></MakeDir>
+		<TransformXml Source="Web.Template.config" Transform="Web.%(build.identity) %(Countries.identity).config" Destination="%(countries.identity)\Web.%(build.identity).config"/>
+	</Target>
+
+</Project>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Target Name="Default">
+
+		<!-- Use property from below (order) -->
+		<Message Importance="High" Text="$(EnvironmentProperty)"/>
+
+		<!-- Condition on a property that gives a warning -->
+		<Warning Condition="'$(MyProperty)' == ''" Code="1" Text="Property 'MyProperty' has no value. Setting default."/>
+
+		<!-- dynamically alter a property value-->
+		<CreateProperty Condition="'$(MyProperty)' == ''" Value="SomeOtherValue">
+			<Output TaskParameter="Value" PropertyName="MyProperty" />
+		</CreateProperty>
+
+		<!-- simply output a property -->
+		<Message Importance="high" Text="My Property: '$(MyProperty)'"/>
+	</Target>
+
+	<PropertyGroup>
+		<!-- Use property from outside (environment variable) -->
+		<EnvironmentProperty>EnvValue: $(EnvValue)</EnvironmentProperty>
+
+		<!-- this does NOT work, as properties are immutable (with the exception of altering them in a task) -->
+		<MyProperty Condition="'$(MyProperty)' != ''">TEST</MyProperty>
+	</PropertyGroup>
+</Project>

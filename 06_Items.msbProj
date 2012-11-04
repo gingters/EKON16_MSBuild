@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Copy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<Target Name="Clean" BeforeTargets="Copy">
+		<RemoveDir Directories="$(OutputDir)"/>
+	</Target>
+
+	<Target Name="Copy">
+		<MakeDir Directories="$(OutputDir)" />
+		<Copy SourceFiles="@(FilesToCopy)" DestinationFolder="$(OutputDir)"/>
+	</Target>
+
+	<PropertyGroup>
+		<OutputDir>$(MSBuildProjectDirectory)\out</OutputDir>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FilesToCopy Include="$(MSBuildProjectDirectory)\**\*.msbProj"/>
+	</ItemGroup>
+</Project>

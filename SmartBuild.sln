@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MSBuild", "MSBuild", "{D05020C8-90F7-46FE-9EB7-30B3FE82AC6F}"
+	ProjectSection(SolutionItems) = preProject
+		00_SNIPPETS.xml = 00_SNIPPETS.xml
+		01_HelloWorld.msbProj = 01_HelloWorld.msbProj
+		02_Warning.msbProj = 02_Warning.msbProj
+		03_Error.msbProj = 03_Error.msbProj
+		04_WarningAndError.msbProj = 04_WarningAndError.msbProj
+		05_Properties.msbProj = 05_Properties.msbProj
+		06_Items.msbProj = 06_Items.msbProj
+		07_Includes.msbProj = 07_Includes.msbProj
+		07_IncludesX.0.msbProj = 07_IncludesX.0.msbProj
+		07_IncludesX.1.msbProj = 07_IncludesX.1.msbProj
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configs", "Configs", "{E3328205-718A-4B6A-BCB5-760AF92BB721}"
+	ProjectSection(SolutionItems) = preProject
+		Web.Debug COM.config = Web.Debug COM.config
+		Web.Debug DE.config = Web.Debug DE.config
+		Web.Release COM.config = Web.Release COM.config
+		Web.Release DE.config = Web.Release DE.config
+		Web.Template.config = Web.Template.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CF9CF420-5B02-47F0-B2BA-BF59B621C523}"
+	ProjectSection(SolutionItems) = preProject
+		1_HelloWorld.msbProj = 1_HelloWorld.msbProj
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
